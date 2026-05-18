@@ -1,0 +1,247 @@
+/* VARIABLES DE COLOR (Inspiradas en tus fotos) */
+:root {
+    --bg-color: #0a0b10;       /* Fondo oscuro profundo */
+    --panel-bg: #121420;       /* Fondo de las cajas de componentes */
+    --neon-cyan: #00f3ff;      /* El azul led/láser de tus imágenes */
+    --neon-pink: #ff007f;      /* El rosa/morado de las válvulas */
+    --text-main: #e2e8f0;      /* Texto principal limpio */
+    --text-muted: #718096;     /* Texto secundario apagado */
+    --border-glow: #1a1f36;
+}
+
+/* CONFIGURACIÓN BASE RECONSTRUCTIVA */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* MENÚ SUPERIOR RESPONSIVE & ESCALABLE */
+header {
+    background-color: rgba(18, 20, 32, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--neon-cyan);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.logo {
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: var(--text-main);
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--neon-pink);
+    text-shadow: 0 0 8px var(--neon-pink);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    font-family: monospace;
+}
+
+nav a:hover, nav a.active {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 8px var(--neon-cyan);
+}
+
+/* CONTENEDOR PRINCIPAL FORMAL */
+main {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding: 2rem 0;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.hero p {
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+}
+
+/* REJILLA DE COMPONENTES / SECCIONES (GRID RESPONSIVE) */
+.grid-sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background-color: var(--panel-bg);
+    border: 1px solid var(--border-glow);
+    border-radius: 6px;
+    padding: 2rem;
+    position: relative;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Detalle de ánodo/cátodo */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 40px;
+    height: 3px;
+    background: var(--neon-pink);
+    box-shadow: 0 0 8px var(--neon-pink);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.15);
+}
+
+.card h2 {
+    font-family: monospace;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn-link {
+    display: inline-block;
+    color: var(--neon-cyan);
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.btn-link:hover {
+    color: var(--neon-pink);
+}
+
+/* PIE DE PÁGINA MODERNO */
+footer {
+    border-top: 1px solid var(--border-glow);
+    background-color: rgba(18, 20, 32, 0.4);
+    margin-top: 5rem;
+    padding: 3rem 2rem 2rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 0.9rem;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--neon-pink);
+    text-shadow: 0 0 8px var(--neon-pink);
+}
+
+/* TRUCO ANTI-BOTS: Invierte el texto por software */
+.anti-bot {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    cursor: pointer;
+}
+
+.footer-credits {
+    color: var(--text-muted);
+    font-family: monospace;
+    font-size: 0.85rem;
+}
+
+/* Ajuste responsive para móviles */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-links {
+        justify-content: center;
+        gap: 1.5rem;
+    }
+}
+
+/* RESPONSIVE DESIGN (MÓVILES) */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    nav ul {
+        gap: 1.2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+}
