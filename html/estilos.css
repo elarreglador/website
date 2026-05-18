@@ -24,6 +24,12 @@ body {
     overflow-x: hidden;
 }
 
+html {
+    scroll-behavior: smooth;
+    /* Compensa la altura del menú fijo al hacer scroll hacia un ID */
+    scroll-padding-top: 120px; 
+}
+
 /* MENÚ SUPERIOR RESPONSIVE & ESCALABLE */
 header {
     background-color: rgba(18, 20, 32, 0.85);
